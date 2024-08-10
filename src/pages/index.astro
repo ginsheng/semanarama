@@ -6,13 +6,11 @@ import Main from "../components/Main.astro";
 import MovieList from "../components/MovieList.astro"
 
 const movies = await getCollection("movies");
+const lastMovieEntries = movies.sort((a,b)=> new Date(b.data.date)-new Date(a.data.date)).slice(0,5);
 ---
-
 <Layout title="Semanarama">
     <Main>
         <H1 text="Últimas entradas"/>
-        {movies.sort(() => (
-                <MovieList movies={movies}/>
-        ))}
+        <MovieList movies={lastMovieEntries}/>
     </Main>
 </Layout>

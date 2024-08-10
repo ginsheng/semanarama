@@ -1,0 +1,18 @@
+---
+const recentPosts = [
+    { title: "Reseña: La La Land", link: "/reseñas/la-la-land" },
+    { title: "Reseña: El Padrino", link: "/reseñas/el-padrino" },
+    // Agrega más reseñas aquí
+];
+---
+
+<aside>
+    <h2>Reseñas Recientes</h2>
+    <ul>
+        {recentPosts.map((post) => (
+                <li key={post.title}>
+                    <a href={post.link}>{post.title}</a>
+                </li>
+        ))}
+    </ul>
+</aside>

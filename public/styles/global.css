@@ -1,0 +1,45 @@
+/*body {*/
+/*    font-family: 'Roboto Thin', sans-serif;*/
+/*    font-size: 16px;*/
+/*    line-height: 1.5;*/
+/*    background-color: black;*/
+/*}*/
+
+h1 {
+    padding-top: 0.5em;
+    font-size: 3rem;
+    color: #d4af65;
+    text-shadow: 2px 2px 4px rgb(96, 56, 40);
+}
+
+h2 {
+    text-shadow: 1px 1px 2px rgb(252 211 77);
+}
+
+span {
+    color: #d4af65;
+}
+
+nav ul li a {
+    color: #d4af65; /* Color ocre aproximado */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #dfd4bf;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+/* Estilos para el texto secundario (si aplica) */
+p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}

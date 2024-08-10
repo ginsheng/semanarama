@@ -1,0 +1,22 @@
+---
+const socialLinks = [
+    { platform: 'X', link: 'https://twitter.com/semanarama' },
+    { platform: 'Instagram', link: 'https://www.instagram.com/semanarama' },
+    { platform: 'Facebook', link: 'https://www.facebook.com/semanarama' },
+];
+---
+
+<footer>
+    <nav class="social-links">
+        <ul>
+            {socialLinks.map((link) => (
+                    <li key={link.platform}>
+                        <a href={link.link} target="_blank" rel="noopener noreferrer">
+                            <i class={`fa fa-${link.platform.toLowerCase()}`}></i>
+                        </a>
+                    </li>
+            ))}
+        </ul>
+    </nav>
+    <p>&copy; 2024 Semanarama. Todos los derechos reservados.</p>
+</footer>

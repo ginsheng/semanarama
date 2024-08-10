@@ -1,0 +1,32 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from 'astro:transitions';
+interface Props {
+    title: string
+    description?: string
+    image?: string
+}
+
+const {title, description = "Reseñas libres de spoilers", image = "/images/jojo-rabbit.png"} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content={description}/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/styles/global.css"/>
+    <meta name="generator" content={Astro.generator}/>
+    <meta property="og:image" content={image}/>
+    <ViewTransitions/>
+    <title>{title}</title>
+</head>
+<body class="min-h-screen">
+<Header/>
+<slot/>
+</body>
+<Footer/>
+</html>

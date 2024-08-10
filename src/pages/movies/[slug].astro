@@ -1,0 +1,53 @@
+---
+import {getCollection, CollectionEntry} from "astro:content";
+import { Image } from 'astro:assets';
+import Main from "../../components/Main.astro";
+import H1 from "../../components/H1.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = async () => {
+    const movies = await getCollection("movies");
+    return movies.map(movie => {
+        return {
+            params: {
+                slug: movie.slug
+            },
+            props: {
+                movie: movie
+            }
+        }
+    });
+}
+
+type Props = {
+    movie: CollectionEntry<"movies">
+}
+
+const {movie: movie} = Astro.props;
+const {Content} = await movie.render();
+const url_youtube = movie.data.trailer_url + "?rel=0&showinfo=0&modestbranding=0";
+---
+<Layout title={movie.data.title}>
+    <Main>
+        <H1 text={movie.data.title}/>
+        <Image src={movie.data.image}
+             width={1024}
+             height={1024 / 1.5}
+             alt={movie.data.title}
+             class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+        />
+        <div class="prose prose-2xl overflow-visible relative mb-20">
+            <Content/>
+        </div>
+        <div class="px-24 max-w-7xl mx-auto w-full max-sm:px-5">
+            <iframe width="560" height="315"
+                    src={url_youtube}
+                    title={movie.data.title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </Main>
+</Layout>

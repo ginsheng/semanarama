@@ -32,22 +32,21 @@ const url_youtube = movie.data.trailer_url + "?rel=0&showinfo=0&modestbranding=0
     <Main>
         <H1 text={movie.data.title}/>
         <Image src={movie.data.image}
-             width={1024}
-             height={1024 / 1.5}
+
              alt={movie.data.title}
-             class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+             class="rounded-2xl flex justify-center shadow-xl mb-4"
         />
         <div class="prose prose-2xl overflow-visible relative mb-20">
             <Content/>
         </div>
+        <div class="py-5 flex justify-center">
+            <iframe width="560" height="315"
+                    src={url_youtube}
+                    title={movie.data.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+            </iframe>
+        </div>
     </Main>
-    <div class="py-5 flex justify-center bg-yellow-50">
-        <iframe width="560" height="315"
-                src={url_youtube}
-                title={movie.data.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-        </iframe>
-    </div>
 </Layout>

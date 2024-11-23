@@ -1,20 +1,21 @@
-<header class="bg-sepia-50 text-white flex justify-between items-center px-24 py-5 max-sm:px-5 max-sm:py-10
+---
+const mainItems = [
+    {ref: '/', tag: 'Inicio'},
+    {ref: '/movies', tag: 'Películas'},
+    {ref: '/tv', tag: 'Series'},
+    {ref: '/coming', tag: 'Por estrenar'},
+];
+---
+<header class="bg-sepia-50 text-white flex justify-between items-center px-24 py-10 max-sm:px-5 max-sm:py-10
  w-full mx-auto">
 
-    <a href="/" class="flex items-center gap-x-4">
-        <img src="/images/logo.png"
-             width={140}
-             height={140}
-             alt="semanarama_logo"
-             class="aspect-thumbnail object-cover"
-        />
-    </a>
-    <nav>
-        <ul class="flex gap-x-8">
-            <li><a href="/" class="font-bold">Inicio</a></li>
-            <li><a href="/movies" class="font-bold">Películas</a></li>
-            <li><a href="/tv" class="font-bold">Series</a></li>
-            <li><a href="/comming" class="font-bold">Por estrenar</a></li>
+    <img class="w-24 lg:w-32" src="/images/logo.png" alt="Semanarama">
+
+    <nav class="bg-sepia-50">
+        <ul class="flex gap-x-8 max-sm:gap-x-0">
+            {mainItems.map((item) => (
+                    <li><a href={item.ref}>{item.tag}</a></li>
+            ))}
         </ul>
     </nav>
 
@@ -28,6 +29,4 @@
         font-family: 'Roboto Thin', sans-serif;
         text-align: center; /* Centra el texto */
     }
-
-
 </style>

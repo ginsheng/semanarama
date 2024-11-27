@@ -9,20 +9,43 @@ const mainItems = [
 <header class="bg-sepia-50 text-white flex justify-between items-center px-24 py-10 max-sm:px-5 max-sm:py-10
  w-full mx-auto">
 
-    <img class="w-24 lg:w-32" src="/images/logo.png" alt="Semanarama">
-
     <nav class="bg-sepia-50">
-        <ul class="flex gap-x-8 max-sm:gap-x-0">
-            {mainItems.map((item) => (
-                    <li><a href={item.ref}>{item.tag}</a></li>
-            ))}
-        </ul>
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex shrink-0 items-center">
+                        <img class="w-24 lg:w-32" src="/images/logo.png" alt="Semanarama">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <ul class="flex gap-x-8 max-sm:gap-x-0">
+                                {mainItems.map((item) => (
+                                        <li><a href={item.ref}>{item.tag}</a></li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <ul class="flex gap-x-8 max-sm:gap-x-0">
+                    {mainItems.map((item) => (
+                            <li><a href={item.ref}>{item.tag}</a></li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     </nav>
+
 
 </header>
 
 <style>
-    /* Colores sepia personalizados */
+    /* Personalized sepia color */
     .bg-sepia-50 {
         background-color: #603828; /* Ajusta este valor según tus preferencias */
         background-size: cover;
